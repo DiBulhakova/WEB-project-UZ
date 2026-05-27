@@ -1,5 +1,6 @@
 function SeatMap({
   selectedSeats,
+  bookedSeats,
   onSeatToggle,
 }) {
   const seats = Array.from(
