@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function TrainCard({ train }) {
   return (
     <div>
@@ -11,7 +13,9 @@ function TrainCard({ train }) {
 
       <p>Тривалість: {train.duration}</p>
 
-      <button>Забронювати</button>
+      <Link to={`/booking/${train.number}`}>
+        <button>Забронювати</button>
+      </Link>
     </div>
   );
 }
