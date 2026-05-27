@@ -1,0 +1,18 @@
+.train-card {
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: white;
+}
+
+.train-card:hover {
+  transform: translateY(-2px);
+  transition: 0.2s;
+}
+
+.train-card button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}

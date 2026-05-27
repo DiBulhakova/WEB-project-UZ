@@ -51,6 +51,10 @@ function BookingForm({ trainId, selectedWagon, selectedSeats }) {
     });
 
     toast.success("Бронювання успішно оформлено");
+
+    setName("");
+    setPhone("");
+    setEmail("");
 };
 
   return (

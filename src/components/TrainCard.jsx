@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import "./TrainCard.css";
 
 function TrainCard({ train }) {
   return (
-    <div>
+    <div className="train-card">
       <h3>Потяг №{train.number}</h3>
 
       <p>{train.route}</p>

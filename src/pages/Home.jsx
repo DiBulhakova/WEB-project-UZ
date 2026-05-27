@@ -20,7 +20,6 @@ function Home() {
   return (
     <div>
       <h1>Список рейсів</h1>
-
       <input
         type="text"
         placeholder="Пошук за номером або маршрутом"

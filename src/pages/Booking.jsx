@@ -1,50 +1,57 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import WagonSelector from "../components/WagonSelector";
 import SeatMap from "../components/SeatMap";
 import BookingForm from "../components/BookingForm";
-import { useEffect, useState } from "react";
 
 function Booking() {
   const { trainId } = useParams();
 
-  const [selectedWagon, setSelectedWagon] =
-    useState(null);
-
-  const [selectedSeats, setSelectedSeats] =
-  useState([]);  
-
+  const [selectedWagon, setSelectedWagon] = useState(null);
+  const [selectedSeats, setSelectedSeats] = useState([]);
   const [bookedSeats, setBookedSeats] = useState([]);
 
-  useEffect(() => {
-  fetch("http://localhost:3001/bookings")
-    .then((response) => response.json())
-    .then((bookings) => {
-      const seats = bookings
-        .filter(
-          (booking) =>
-            booking.trainId === trainId &&
-            booking.wagon === selectedWagon
-        )
-        .flatMap((booking) => booking.seats);
+  const loadBookedSeats = () => {
+    if (!selectedWagon) return;
 
-      setBookedSeats(seats);
-    });
+    fetch("http://localhost:3001/bookings")
+      .then((response) => response.json())
+      .then((bookings) => {
+        const seats = bookings
+          .filter(
+            (booking) =>
+              booking.trainId === trainId &&
+              booking.wagon === selectedWagon
+          )
+          .flatMap((booking) => booking.seats);
+
+        setBookedSeats(seats);
+      });
+  };
+
+  useEffect(() => {
+    loadBookedSeats();
   }, [trainId, selectedWagon]);
 
   const handleSeatToggle = (seat) => {
+    if (bookedSeats.includes(seat)) {
+      return;
+    }
+
     if (selectedSeats.includes(seat)) {
       setSelectedSeats(
         selectedSeats.filter(
-          (selectedSeat) =>
-            selectedSeat !== seat
+          (selectedSeat) => selectedSeat !== seat
         )
       );
     } else {
-      setSelectedSeats([
-        ...selectedSeats,
-        seat,
-      ]);
+      setSelectedSeats([...selectedSeats, seat]);
     }
+  };
+
+  const handleWagonSelect = (wagon) => {
+    setSelectedWagon(wagon);
+    setSelectedSeats([]);
   };
 
   return (
@@ -55,7 +62,7 @@ function Booking() {
 
       <WagonSelector
         selectedWagon={selectedWagon}
-        onSelectWagon={setSelectedWagon}
+        onSelectWagon={handleWagonSelect}
       />
 
       {selectedWagon && (
@@ -71,6 +78,7 @@ function Booking() {
           trainId={trainId}
           selectedWagon={selectedWagon}
           selectedSeats={selectedSeats}
+          onBookingSaved={loadBookedSeats}
         />
       )}
     </div>

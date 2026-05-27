@@ -73,6 +73,32 @@
         "email": "dianabulgakova3@gmail.com"
       },
       "id": "NN-nwILhyXk"
+    },
+    {
+      "trainId": "715",
+      "wagon": 2,
+      "seats": [
+        2
+      ],
+      "passenger": {
+        "name": "Діана",
+        "phone": "+380954678666",
+        "email": "dianabulgakova3@gmail.com"
+      },
+      "id": "H2bGy7DojB8"
+    },
+    {
+      "trainId": "715",
+      "wagon": 2,
+      "seats": [
+        9
+      ],
+      "passenger": {
+        "name": "Diana",
+        "phone": "+380975566234",
+        "email": "dianabulgakova3@gmail.com"
+      },
+      "id": "3l8Zd-SORIE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

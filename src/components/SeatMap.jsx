@@ -1,8 +1,4 @@
-function SeatMap({
-  selectedSeats,
-  bookedSeats,
-  onSeatToggle,
-}) {
+function SeatMap({ selectedSeats, bookedSeats, onSeatToggle }) {
   const seats = Array.from(
     { length: 12 },
     (_, index) => index + 1
@@ -19,20 +15,33 @@ function SeatMap({
           gap: "10px",
         }}
       >
-        {seats.map((seat) => (
-          <button
-            key={seat}
-            onClick={() => onSeatToggle(seat)}
-            style={{
-              backgroundColor:
-                selectedSeats.includes(seat)
-                  ? "lightgreen"
-                  : "white",
+        {seats.map((seat) => {
+          const isBooked = bookedSeats.includes(seat);
+          const isSelected = selectedSeats.includes(seat);
+
+          return (
+            <button
+              key={seat}
+              onClick={() => onSeatToggle(seat)}
+              disabled={isBooked}
+              style={{
+              width: "60px",
+              height: "40px",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              backgroundColor: bookedSeats.includes(seat)
+                ? "red"
+                : selectedSeats.includes(seat)
+                ? "green"
+                : "lightgray",
+              color: "white",
             }}
-          >
-            {seat}
-          </button>
-        ))}
+            >
+              {seat}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

@@ -2,7 +2,12 @@ import TrainCard from "./TrainCard";
 
 function TrainList({ trains }) {
   return (
-    <div>
+    <div
+      style={{
+        display: "grid",
+        gap: "16px",
+      }}
+    >
       {trains.map((train) => (
         <TrainCard
           key={train.id}
