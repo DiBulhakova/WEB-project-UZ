@@ -3,6 +3,7 @@ import TrainList from "../components/TrainList";
 
 function Home() {
   const [trains, setTrains] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3001/trains")
@@ -10,11 +11,24 @@ function Home() {
       .then((data) => setTrains(data));
   }, []);
 
+  const filteredTrains = trains.filter(
+    (train) =>
+      train.number.includes(search) ||
+      train.route.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div>
       <h1>Список рейсів</h1>
 
-      <TrainList trains={trains} />
+      <input
+        type="text"
+        placeholder="Пошук за номером або маршрутом"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      <TrainList trains={filteredTrains} />
     </div>
   );
 }

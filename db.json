@@ -1,0 +1,37 @@
+{
+  "trains": [
+  {
+    "id": 1,
+    "number": "715",
+    "route": "Львів → Київ",
+    "departureDate": "2026-05-27",
+    "departureTime": "07:15",
+    "duration": "7 год 20 хв"
+  },
+  {
+    "id": 2,
+    "number": "715",
+    "route": "Київ → Львів",
+    "departureDate": "2026-05-27",
+    "departureTime": "12:40",
+    "duration": "7 год 10 хв"
+  },
+  {
+    "id": 3,
+    "number": "117",
+    "route": "Львів → Одеса",
+    "departureDate": "2026-05-28",
+    "departureTime": "21:10",
+    "duration": "11 год 30 хв"
+  },
+  {
+    "id": 4,
+    "number": "117",
+    "route": "Одеса → Львів",
+    "departureDate": "2026-05-29",
+    "departureTime": "20:45",
+    "duration": "11 год 15 хв"
+  }
+ ],
+  "bookings": []
+}
