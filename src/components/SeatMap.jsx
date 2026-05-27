@@ -23,7 +23,6 @@ function SeatMap({ selectedSeats, bookedSeats, onSeatToggle }) {
             <button
               key={seat}
               onClick={() => onSeatToggle(seat)}
-              disabled={isBooked}
               style={{
               width: "60px",
               height: "40px",

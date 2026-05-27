@@ -42,37 +42,24 @@
       ],
       "passenger": {
         "name": "Діана",
-        "phone": "+380976654345",
+        "phone": "+380976543212",
         "email": "dianabulgakova3@gmail.com"
       },
-      "id": "SPsBYP3ol20"
+      "id": "umRRMNCjSgU"
     },
     {
       "trainId": "715",
-      "wagon": 2,
+      "wagon": 1,
       "seats": [
-        7
+        2,
+        3
       ],
       "passenger": {
-        "name": "Діана",
-        "phone": "+380971111111",
+        "name": "Вероніка",
+        "phone": "+380976755456",
         "email": "dianabulgakova3@gmail.com"
       },
-      "id": "iS__m3IP0Kw"
-    },
-    {
-      "trainId": "715",
-      "wagon": 3,
-      "seats": [
-        1,
-        6
-      ],
-      "passenger": {
-        "name": "Діана",
-        "phone": "+380976655444",
-        "email": "dianabulgakova3@gmail.com"
-      },
-      "id": "NN-nwILhyXk"
+      "id": "UazTo_Gb1IY"
     },
     {
       "trainId": "715",
@@ -82,23 +69,51 @@
       ],
       "passenger": {
         "name": "Діана",
-        "phone": "+380954678666",
+        "phone": "+380987654321",
         "email": "dianabulgakova3@gmail.com"
       },
-      "id": "H2bGy7DojB8"
+      "id": "qcRW4UaogKE"
     },
     {
       "trainId": "715",
       "wagon": 2,
       "seats": [
-        9
+        3,
+        7
       ],
       "passenger": {
-        "name": "Diana",
-        "phone": "+380975566234",
+        "name": "Діана",
+        "phone": "+380975644321",
         "email": "dianabulgakova3@gmail.com"
       },
-      "id": "3l8Zd-SORIE"
+      "id": "ypBejAvi9wQ"
+    },
+    {
+      "trainId": "715",
+      "wagon": 3,
+      "seats": [
+        10,
+        11
+      ],
+      "passenger": {
+        "name": "Вася",
+        "phone": "+380765432123",
+        "email": "dianabulgakova3@gmail.com"
+      },
+      "id": "zygkMJNF8hE"
+    },
+    {
+      "trainId": "715",
+      "wagon": 4,
+      "seats": [
+        7
+      ],
+      "passenger": {
+        "name": "Ніка",
+        "phone": "+380986543267",
+        "email": "dianabulgakova3@gmail.com"
+      },
+      "id": "TUMjixQGXAo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

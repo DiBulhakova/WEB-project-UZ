@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import WagonSelector from "../components/WagonSelector";
 import SeatMap from "../components/SeatMap";
 import BookingForm from "../components/BookingForm";
+import { getBookings } from "../services/BookingService";
 
 function Booking() {
   const { trainId } = useParams();
@@ -11,22 +12,25 @@ function Booking() {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [bookedSeats, setBookedSeats] = useState([]);
 
+  const handleBookingSaved = () => {
+  setBookedSeats([...bookedSeats, ...selectedSeats]);
+  setSelectedSeats([]);
+  };
+
   const loadBookedSeats = () => {
-    if (!selectedWagon) return;
+    if (!selectedWagon) return Promise.resolve();
 
-    fetch("http://localhost:3001/bookings")
-      .then((response) => response.json())
-      .then((bookings) => {
-        const seats = bookings
-          .filter(
-            (booking) =>
-              booking.trainId === trainId &&
-              booking.wagon === selectedWagon
-          )
-          .flatMap((booking) => booking.seats);
+    return getBookings().then((bookings) => {
+      const seats = bookings
+        .filter(
+          (booking) =>
+            String(booking.trainId) === String(trainId) &&
+            Number(booking.wagon) === Number(selectedWagon)
+        )
+        .flatMap((booking) => booking.seats);
 
-        setBookedSeats(seats);
-      });
+      setBookedSeats(seats);
+    });
   };
 
   useEffect(() => {
@@ -78,7 +82,7 @@ function Booking() {
           trainId={trainId}
           selectedWagon={selectedWagon}
           selectedSeats={selectedSeats}
-          onBookingSaved={loadBookedSeats}
+          onBookingSaved={handleBookingSaved}
         />
       )}
     </div>

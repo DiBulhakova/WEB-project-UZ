@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-function BookingForm({ trainId, selectedWagon, selectedSeats }) {
+function BookingForm({ trainId, selectedWagon, selectedSeats, onBookingSaved, clearSelectedSeats }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -48,14 +48,17 @@ function BookingForm({ trainId, selectedWagon, selectedSeats }) {
         "Content-Type": "application/json",
     },
     body: JSON.stringify(newBooking),
+    })
+
+    .then(() => {
+      onBookingSaved();
+
+      setName("");
+      setPhone("");
+      setEmail("");
+
+      toast.success("Бронювання успішно оформлено");
     });
-
-    toast.success("Бронювання успішно оформлено");
-
-    setName("");
-    setPhone("");
-    setEmail("");
-};
 
   return (
     <form onSubmit={handleSubmit} noValidate>
