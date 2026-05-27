@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import WagonSelector from "../components/WagonSelector";
 import SeatMap from "../components/SeatMap";
+import BookingForm from "../components/BookingForm";
 
 function Booking() {
   const { trainId } = useParams();
@@ -12,21 +13,43 @@ function Booking() {
   const [selectedSeats, setSelectedSeats] =
   useState([]);  
 
-const handleSeatToggle = (seat) => {
-  if (selectedSeats.includes(seat)) {
-    setSelectedSeats(
-      selectedSeats.filter(
-        (selectedSeat) =>
-          selectedSeat !== seat
-      )
-    );
-  } else {
-    setSelectedSeats([
-      ...selectedSeats,
-      seat,
-    ]);
-  }
-};
+  const handleSeatToggle = (seat) => {
+    if (selectedSeats.includes(seat)) {
+      setSelectedSeats(
+        selectedSeats.filter(
+          (selectedSeat) =>
+            selectedSeat !== seat
+        )
+      );
+    } else {
+      setSelectedSeats([
+        ...selectedSeats,
+        seat,
+      ]);
+    }
+  };
+
+  const handleSubmit = (event) => {
+
+    if (!name.trim()) {
+      alert("Введіть ім'я");
+      return;
+    }
+
+    if (!/^\+380\d{9}$/.test(phone)) {
+      alert(
+        "Телефон повинен бути у форматі +380XXXXXXXXX"
+      );
+      return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      alert("Некоректний email");
+      return;
+    }
+
+    alert("Бронювання успішно оформлено");
+  };
 
   return (
     <div>
@@ -44,6 +67,10 @@ const handleSeatToggle = (seat) => {
           selectedSeats={selectedSeats}
           onSeatToggle={handleSeatToggle}
         />
+      )}
+
+      {selectedSeats.length > 0 && (
+        <BookingForm />
       )}
     </div>
   );
