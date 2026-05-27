@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function BookingForm() {
+function BookingForm({ trainId, selectedWagon, selectedSeats }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -29,6 +29,25 @@ function BookingForm() {
     alert("Некоректний email");
     return;
     }
+
+    const newBooking = {
+    trainId,
+    wagon: selectedWagon,
+    seats: selectedSeats,
+    passenger: {
+        name,
+        phone,
+        email,
+    },
+    };
+
+    fetch("http://localhost:3001/bookings", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newBooking),
+    });
 
     alert("Бронювання успішно оформлено");
 };

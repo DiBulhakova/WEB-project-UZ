@@ -29,28 +29,6 @@ function Booking() {
     }
   };
 
-  const handleSubmit = (event) => {
-
-    if (!name.trim()) {
-      alert("Введіть ім'я");
-      return;
-    }
-
-    if (!/^\+380\d{9}$/.test(phone)) {
-      alert(
-        "Телефон повинен бути у форматі +380XXXXXXXXX"
-      );
-      return;
-    }
-
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      alert("Некоректний email");
-      return;
-    }
-
-    alert("Бронювання успішно оформлено");
-  };
-
   return (
     <div>
       <h1>Бронювання квитка</h1>
@@ -70,7 +48,11 @@ function Booking() {
       )}
 
       {selectedSeats.length > 0 && (
-        <BookingForm />
+        <BookingForm
+        trainId={trainId}
+        selectedWagon={selectedWagon}
+        selectedSeats={selectedSeats}
+      />
       )}
     </div>
   );

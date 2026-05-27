@@ -1,37 +1,65 @@
 {
   "trains": [
-  {
-    "id": 1,
-    "number": "715",
-    "route": "Львів → Київ",
-    "departureDate": "2026-05-27",
-    "departureTime": "07:15",
-    "duration": "7 год 20 хв"
-  },
-  {
-    "id": 2,
-    "number": "716",
-    "route": "Київ → Львів",
-    "departureDate": "2026-05-27",
-    "departureTime": "12:40",
-    "duration": "7 год 10 хв"
-  },
-  {
-    "id": 3,
-    "number": "117",
-    "route": "Львів → Одеса",
-    "departureDate": "2026-05-28",
-    "departureTime": "21:10",
-    "duration": "11 год 30 хв"
-  },
-  {
-    "id": 4,
-    "number": "118",
-    "route": "Одеса → Львів",
-    "departureDate": "2026-05-29",
-    "departureTime": "20:45",
-    "duration": "11 год 15 хв"
-  }
- ],
-  "bookings": []
+    {
+      "id": "1",
+      "number": "715",
+      "route": "Львів → Київ",
+      "departureDate": "2026-05-27",
+      "departureTime": "07:15",
+      "duration": "7 год 20 хв"
+    },
+    {
+      "id": "2",
+      "number": "716",
+      "route": "Київ → Львів",
+      "departureDate": "2026-05-27",
+      "departureTime": "12:40",
+      "duration": "7 год 10 хв"
+    },
+    {
+      "id": "3",
+      "number": "117",
+      "route": "Львів → Одеса",
+      "departureDate": "2026-05-28",
+      "departureTime": "21:10",
+      "duration": "11 год 30 хв"
+    },
+    {
+      "id": "4",
+      "number": "118",
+      "route": "Одеса → Львів",
+      "departureDate": "2026-05-29",
+      "departureTime": "20:45",
+      "duration": "11 год 15 хв"
+    }
+  ],
+  "bookings": [
+    {
+      "trainId": "715",
+      "wagon": 2,
+      "seats": [
+        6
+      ],
+      "passenger": {
+        "name": "Діана",
+        "phone": "+380976654345",
+        "email": "dianabulgakova3@gmail.com"
+      },
+      "id": "SPsBYP3ol20"
+    },
+    {
+      "trainId": "715",
+      "wagon": 2,
+      "seats": [
+        7
+      ],
+      "passenger": {
+        "name": "Діана",
+        "phone": "+380971111111",
+        "email": "dianabulgakova3@gmail.com"
+      },
+      "id": "iS__m3IP0Kw"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
