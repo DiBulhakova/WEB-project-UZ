@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 function BookingForm({ trainId, selectedWagon, selectedSeats }) {
   const [name, setName] = useState("");
@@ -49,7 +50,7 @@ function BookingForm({ trainId, selectedWagon, selectedSeats }) {
     body: JSON.stringify(newBooking),
     });
 
-    alert("Бронювання успішно оформлено");
+    toast.success("Бронювання успішно оформлено");
 };
 
   return (
